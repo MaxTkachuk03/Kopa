@@ -24,7 +24,7 @@ class Store extends StatelessWidget{
         onTap: (int i) => print('click index=$i'),
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: col,
         ),
       ),

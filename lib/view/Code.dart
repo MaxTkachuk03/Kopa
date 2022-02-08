@@ -19,14 +19,13 @@ class Code extends StatefulWidget {
 
 
 class Code1 extends State<Code> {
-  TextEditingController pint = TextEditingController(text: pin);
+  TextEditingController pint = TextEditingController();
   @override
   void initState(){
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
   }
   @override
   Widget build(BuildContext context) {
-    initState();
     return Scaffold(
       body: Builder(
         builder: (context) => ListView(
@@ -95,10 +94,7 @@ class Code1 extends State<Code> {
                                   onPressed: () {
                                     // Navigator.pop(context, false);
                                     Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                            phonescreeen()));
+                                        context, back());
                                   },
                                   style:bs,
                                 ),

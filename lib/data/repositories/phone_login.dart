@@ -5,8 +5,6 @@ import 'package:ko_pa/data/repositories/code_send.dart';
 import 'package:ko_pa/view/Code.dart';
 import 'package:ko_pa/view/Phone.dart';
 
-
-
 String phone;
 bool codeSent = false;
 bool text1 = false;
@@ -36,6 +34,8 @@ Future<void> verifyPhone() async {
       },
       timeout: Duration(seconds: 60));
 }
+
+
 
 
 

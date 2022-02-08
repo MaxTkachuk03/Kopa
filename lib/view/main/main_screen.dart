@@ -16,9 +16,10 @@ class MyHomePage1 extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+     key: UniqueKey(),
       body: Container(
-        padding: EdgeInsets.only(top: 70, left: 10, right: 10),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.only(top: 70, left: 10, right: 10),
+        decoration: const BoxDecoration(
           gradient: col,
         ),
         child: Center(
@@ -39,7 +40,7 @@ class MyHomePage1 extends State<MyHomePage> {
                     onPressed: () => {
                       Navigator.of(context).push(createRoute()),
                     },
-                    child: Icon(Icons.phone),
+                    child: const Icon(Icons.phone),
                     backgroundColor: Colors.lightGreen,
                   ),
                   const SizedBox(width: 50),
@@ -48,7 +49,7 @@ class MyHomePage1 extends State<MyHomePage> {
                     onPressed: null,
                     backgroundColor: Colors.blue,
                     child: const Image(
-                      image: AssetImage("assets/F.png"),
+                      image: const AssetImage("assets/F.png"),
                     ),
                   ),
                   const SizedBox(width: 50),
@@ -58,7 +59,7 @@ class MyHomePage1 extends State<MyHomePage> {
                     backgroundColor: Colors.red,
                     //child:const Text("G"),
                     child: const Image(
-                      image: AssetImage("assets/G.png"),
+                      image: const AssetImage("assets/G.png"),
                     ),
                   ),
                   const SizedBox(width: 36),

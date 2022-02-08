@@ -1,12 +1,15 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:ko_pa/data/repositories/code_send.dart';
 import 'package:ko_pa/data/repositories/phone_login.dart';
 import 'package:ko_pa/generated/l10n.dart';
 import 'package:ko_pa/resourses/animations.dart';
 import 'package:ko_pa/resourses/colors(gradients).dart';
 import 'package:ko_pa/resourses/images.dart';
 import 'package:ko_pa/resourses/styles.dart';
+import 'package:ko_pa/view/Code.dart';
 import 'package:ko_pa/view/main/main_screen.dart';
 
 
@@ -23,14 +26,33 @@ class phonescreeen extends StatefulWidget {
 }
 
 class phonescreeenState extends State<phonescreeen> {
-  TextEditingController phonecontrol = TextEditingController();
+  final phonecontrol = TextEditingController();
+
   @override
   void initState() {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
   }
   @override
   Widget build(BuildContext context) {
-    initState();
+    return Scaffold(
+      //  key: scaffoldKey,
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: col,
+          ),
+          child: codeSent
+             // ? Center(
+           // child: CircularProgressIndicator(),
+         // )
+              //: currentState == MobileVerificationState.SHOW_MOBILE_FORM_STATE
+              ? Code()
+              : getmobilephone(context),
+          padding: const EdgeInsets.all(16),
+        ));
+  }
+
+  getmobilephone(context){
+
     return Scaffold(
       body: ListView(
         children: <Widget>[
@@ -61,13 +83,9 @@ class phonescreeenState extends State<phonescreeen> {
                           textAlign: TextAlign.start,
                           initialCountryCode: 'UA',
                           controller: phonecontrol,
-                          dropdownDecoration: BoxDecoration(
+                          dropdownDecoration: const BoxDecoration(
                             color: lcol,
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(40.0),
-                                topRight: Radius.zero,
-                                bottomLeft: Radius.circular(40.0),
-                                bottomRight: Radius.zero),
+                            borderRadius: brd,
                           ),
                           decoration: InputDecoration(
                             contentPadding: pdtxt,
@@ -90,8 +108,8 @@ class phonescreeenState extends State<phonescreeen> {
                       ElevatedButton(
                         onPressed: () {
                           if (verifyPhone() != null &&
-                              phone.isNotEmpty &&
-                             phonecontrol.text.length == 9) {
+                              //phonescreeenState().phone.isNotEmpty &&
+                              phonecontrol.text.length == 9) {
                             Navigator.of(context).push(createRoute0());
                           }
                         },
@@ -117,8 +135,7 @@ class phonescreeenState extends State<phonescreeen> {
                                   // Navigator.pop(context, false);
                                   Navigator.push(
                                       context,
-                                      MaterialPageRoute(
-                                          builder: (context) => MyHomePage()));
+                                      back0());
                                 },
                                 style: bs,
                               ),
@@ -139,6 +156,8 @@ class phonescreeenState extends State<phonescreeen> {
       //),
     );
   }
+
+
 
 
 }

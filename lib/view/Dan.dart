@@ -26,7 +26,6 @@ class Dani1 extends State<Dani> {
   }
   @override
   Widget build(BuildContext context) {
-    initState();
     return Scaffold(
       body: Builder(
         builder: (context) => ListView(
@@ -35,7 +34,7 @@ class Dani1 extends State<Dani> {
               //width: MediaQuery.of(context).size.width*1,
              // height: MediaQuery.of(context).size.height * 1.01,
               padding: pad0,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 gradient: col,
               ),
               child: Column(
@@ -129,9 +128,7 @@ class Dani1 extends State<Dani> {
                                     // Navigator.pop(context, false);
                                     Navigator.push(
                                         context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                Code()));
+                                        back1());
                                   },
                                   style: bs,
                                 ),

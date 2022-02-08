@@ -58,3 +58,8 @@ ButtonStyle but = ButtonStyle(
    fontSize: 20.0,
    fontWeight: FontWeight.normal,
  );
+  const brd = BorderRadius.only(
+      topLeft: Radius.circular(40.0),
+      topRight: Radius.zero,
+      bottomLeft: Radius.circular(40.0),
+      bottomRight: Radius.zero);
